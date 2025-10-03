@@ -582,44 +582,52 @@ class LifeCalendar {
         if (!visitorCounter) {
             visitorCounter = document.createElement('div');
             visitorCounter.id = 'visitor-counter';
-            visitorCounter.style.cssText = `
-                text-align: center;
-                margin-top: 1rem;
-                padding: 1rem;
-                background: rgba(0, 0, 0, 0.05);
-                border-radius: 8px;
-                font-size: 0.9rem;
-                color: #666;
-            `;
+            visitorCounter.className = 'visitor-counter-enhanced';
             
             const footer = document.querySelector('.footer');
             if (footer) {
                 footer.appendChild(visitorCounter);
+            } else {
+                // If no footer, add to container
+                const container = document.querySelector('.container');
+                if (container) {
+                    container.appendChild(visitorCounter);
+                }
             }
         }
         
         visitorCounter.innerHTML = `
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <div>
-                    <strong style="color: #000;">${data.totalVisitors}</strong>
-                    <span>Total Visitors</span>
+            <div class="visitor-counter-content">
+                <div class="visitor-counter-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="visitor-counter-title">Community Impact</span>
                 </div>
-                <div>
-                    <strong style="color: #000;">${data.dailyVisitors}</strong>
-                    <span>Today's Visitors</span>
+                <div class="visitor-stats-grid">
+                    <div class="visitor-stat-item">
+                        <div class="visitor-stat-number">${data.totalVisitors}</div>
+                        <div class="visitor-stat-label">Total Visitors</div>
+                    </div>
+                    <div class="visitor-stat-divider"></div>
+                    <div class="visitor-stat-item">
+                        <div class="visitor-stat-number">${data.dailyVisitors}</div>
+                        <div class="visitor-stat-label">Today's Visitors</div>
+                    </div>
+                </div>
+                <div class="visitor-counter-message">
+                    <span>Join thousands reflecting on life's precious time</span>
                 </div>
             </div>
         `;
     }
     
     showWelcomePopup() {
-        // Check if user has seen the welcome popup today
-        const today = new Date().toDateString();
-        const lastShown = localStorage.getItem('lastWelcomeShown');
-        
-        if (lastShown === today) {
-            return; // Don't show again today
-        }
+        // Show welcome popup every time (removed daily restriction)
+        // Users can always see inspiring quotes when they visit
         
         // Select a random quote
         const randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)];
@@ -804,8 +812,7 @@ class LifeCalendar {
                 }
             }, 500);
             
-            // Remember that we showed the welcome today
-            localStorage.setItem('lastWelcomeShown', today);
+            // Welcome popup will show every time for fresh inspiration
         };
         
         // Continue button click
