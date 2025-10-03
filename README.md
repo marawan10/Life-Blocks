@@ -127,42 +127,6 @@ This project draws inspiration from:
 - **Minimalist Design**: Clean, distraction-free interface focusing on what matters
 - **Cross-Cultural Wisdom**: Universal themes of time, purpose, and mortality
 
-## 🚀 Deployment to Vercel
-
-### Prerequisites
-- GitHub account
-- Vercel account (free)
-
-### Steps
-1. **Push to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/life-blocks.git
-   git push -u origin main
-   ```
-
-2. **Deploy to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will automatically detect it as a static site
-   - Click "Deploy"
-
-3. **Visitor Counter**:
-   - The visitor counter will automatically work once deployed
-   - Uses Vercel's serverless functions (`/api/visitors.js`)
-   - Tracks unique daily visitors privacy-friendly
-
-### Environment Setup
-No environment variables needed - the app works out of the box!
-
-### Custom Domain (Optional)
-- In Vercel dashboard, go to your project
-- Navigate to "Settings" → "Domains"
-- Add your custom domain
 
 ## 📊 Analytics
 - **Visitor Counter**: Built-in privacy-friendly visitor tracking
@@ -176,3 +140,4 @@ This project is open source and available under the MIT License.
 ---
 
 *"The fear of death follows from the fear of life. A man who lives fully is prepared to die at any time." - Mark Twain*
+By: Marwan Mokhtar
