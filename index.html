@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Blocks | مربعات الحياة</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-quote">Death is the best motivator</h1>
+            <p class="subtitle">Each square represents one week of your life. Make them count.</p>
+        </header>
+
+        <div class="controls">
+            <div class="input-group">
+                <label for="birthdate">Your Birth Date</label>
+                <input type="date" id="birthdate" />
+            </div>
+            <div class="input-group">
+                <label for="life-expectancy">Life Expectancy</label>
+                <select id="life-expectancy">
+                    <option value="65">65 years</option>
+                    <option value="75">75 years</option>
+                    <option value="80">80 years</option>
+                    <option value="85">85 years</option>
+                    <option value="90">90 years</option>
+                </select>
+            </div>
+            <div class="style-selector">
+                <label>Style</label>
+                <button class="style-btn active" data-style="minimal">Minimal</button>
+                <button class="style-btn" data-style="poster">Poster</button>
+                <button class="style-btn" data-style="digital">Digital</button>
+            </div>
+            <div class="quote-selector">
+                <label>Inspiration</label>
+                <button class="quote-btn" id="show-quote-btn">Show Quote</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="weeks-lived">0</span>
+                <span class="stat-label">Weeks Lived</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="weeks-remaining">3900</span>
+                <span class="stat-label">Weeks Remaining</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="life-percentage">0%</span>
+                <span class="stat-label">Life Completed</span>
+            </div>
+        </div>
+
+        <div class="calendar-container">
+            <div class="year-labels" id="year-labels"></div>
+            <div class="life-calendar" id="life-calendar"></div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-square lived"></div>
+                <span>Weeks lived</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-square current"></div>
+                <span>Current week</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-square remaining"></div>
+                <span>Weeks remaining</span>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>"The fear of death follows from the fear of life. A man who lives fully is prepared to die at any time." - Mark Twain</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

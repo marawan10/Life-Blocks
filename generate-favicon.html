@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <canvas id="favicon" width="32" height="32" style="border: 1px solid #ccc; image-rendering: pixelated; width: 128px; height: 128px;"></canvas>
+    <br><br>
+    <button onclick="downloadFavicon()">Download Favicon</button>
+    
+    <script>
+        const canvas = document.getElementById('favicon');
+        const ctx = canvas.getContext('2d');
+        
+        // Clear canvas with black background
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // Create a 6x6 grid of life blocks
+        const blockSize = 3;
+        const gap = 1;
+        const startX = 4;
+        const startY = 4;
+        
+        // Draw life blocks grid
+        for (let row = 0; row < 6; row++) {
+            for (let col = 0; col < 6; col++) {
+                const x = startX + col * (blockSize + gap);
+                const y = startY + row * (blockSize + gap);
+                
+                // Determine block color based on position
+                let color;
+                const totalBlocks = row * 6 + col;
+                
+                if (totalBlocks < 18) {
+                    color = '#ffffff'; // Lived weeks (white)
+                } else if (totalBlocks === 18) {
+                    color = '#ff0000'; // Current week (red)
+                } else {
+                    color = '#444444'; // Future weeks (dark gray)
+                }
+                
+                ctx.fillStyle = color;
+                ctx.fillRect(x, y, blockSize, blockSize);
+            }
+        }
+        
+        // Add a small hourglass icon in the corner
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(26, 26, 5, 1); // Top
+        ctx.fillRect(27, 27, 3, 1); // Upper middle
+        ctx.fillRect(28, 28, 1, 1); // Center
+        ctx.fillRect(27, 29, 3, 1); // Lower middle
+        ctx.fillRect(26, 30, 5, 1); // Bottom
+        
+        function downloadFavicon() {
+            // Create different sizes
+            const sizes = [16, 32, 48];
+            
+            sizes.forEach(size => {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = size;
+                tempCanvas.height = size;
+                const tempCtx = tempCanvas.getContext('2d');
+                
+                // Disable image smoothing for pixel-perfect scaling
+                tempCtx.imageSmoothingEnabled = false;
+                tempCtx.drawImage(canvas, 0, 0, 32, 32, 0, 0, size, size);
+                
+                // Download
+                const link = document.createElement('a');
+                link.download = `favicon-${size}x${size}.png`;
+                link.href = tempCanvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

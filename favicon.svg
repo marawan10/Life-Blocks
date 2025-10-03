@@ -1,0 +1,56 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#000000" rx="6"/>
+  
+  <!-- Life blocks grid (5x5 grid for better visibility) -->
+  <defs>
+    <style>
+      .lived { fill: #ffffff; }
+      .current { fill: #ff0000; }
+      .future { fill: #333333; }
+      .block { rx: 0.5; }
+    </style>
+  </defs>
+  
+  <!-- Grid of life blocks -->
+  <!-- Row 1 (all lived) -->
+  <rect x="4" y="4" width="3.5" height="3.5" class="lived block"/>
+  <rect x="8.5" y="4" width="3.5" height="3.5" class="lived block"/>
+  <rect x="13" y="4" width="3.5" height="3.5" class="lived block"/>
+  <rect x="17.5" y="4" width="3.5" height="3.5" class="lived block"/>
+  <rect x="22" y="4" width="3.5" height="3.5" class="lived block"/>
+  
+  <!-- Row 2 (all lived) -->
+  <rect x="4" y="8.5" width="3.5" height="3.5" class="lived block"/>
+  <rect x="8.5" y="8.5" width="3.5" height="3.5" class="lived block"/>
+  <rect x="13" y="8.5" width="3.5" height="3.5" class="lived block"/>
+  <rect x="17.5" y="8.5" width="3.5" height="3.5" class="lived block"/>
+  <rect x="22" y="8.5" width="3.5" height="3.5" class="lived block"/>
+  
+  <!-- Row 3 (mixed - shows life progress) -->
+  <rect x="4" y="13" width="3.5" height="3.5" class="lived block"/>
+  <rect x="8.5" y="13" width="3.5" height="3.5" class="lived block"/>
+  <rect x="13" y="13" width="3.5" height="3.5" class="current block"/> <!-- Current week -->
+  <rect x="17.5" y="13" width="3.5" height="3.5" class="future block"/>
+  <rect x="22" y="13" width="3.5" height="3.5" class="future block"/>
+  
+  <!-- Row 4 (future) -->
+  <rect x="4" y="17.5" width="3.5" height="3.5" class="future block"/>
+  <rect x="8.5" y="17.5" width="3.5" height="3.5" class="future block"/>
+  <rect x="13" y="17.5" width="3.5" height="3.5" class="future block"/>
+  <rect x="17.5" y="17.5" width="3.5" height="3.5" class="future block"/>
+  <rect x="22" y="17.5" width="3.5" height="3.5" class="future block"/>
+  
+  <!-- Row 5 (future) -->
+  <rect x="4" y="22" width="3.5" height="3.5" class="future block"/>
+  <rect x="8.5" y="22" width="3.5" height="3.5" class="future block"/>
+  <rect x="13" y="22" width="3.5" height="3.5" class="future block"/>
+  <rect x="17.5" y="22" width="3.5" height="3.5" class="future block"/>
+  <rect x="22" y="22" width="3.5" height="3.5" class="future block"/>
+  
+  <!-- Small hourglass icon overlay -->
+  <g transform="translate(26, 26)" opacity="0.8">
+    <path d="M0 0 L5 0 L5 1 L4 2 L4 3 L5 4 L5 5 L0 5 L0 4 L1 3 L1 2 L0 1 Z" fill="#ffffff"/>
+    <circle cx="2.5" cy="2" r="0.3" fill="#000000"/>
+  </g>
+</svg>
