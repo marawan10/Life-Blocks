@@ -3,7 +3,7 @@
 A modern, minimalist web application that visualizes your life as a grid of weeks, inspired by the concept that awareness of mortality can be the ultimate motivator for living fully. Each square represents one week of your life - make them count.
 
 ## 🚀 Live Demo
-Visit the live application: [Life Blocks](https://your-vercel-url.vercel.app)
+Visit the live application: [Life Blocks](https://life-blocks.vercel.app)
 
 ## ✨ New Features & Updates
 
